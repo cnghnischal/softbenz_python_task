@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enroll Student</title>
+  </head>
+  <body>
+    <h1>Enroll Student</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Enroll</button>
+    </form>
+
+    <h2>Enrollments:</h2>
+    <ul>
+      {% for enrollment in enrollments %}
+      <li>{{ enrollment.student.name }} → {{ enrollment.course.title }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
